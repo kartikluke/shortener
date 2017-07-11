@@ -76,7 +76,7 @@ class Shortener::ShortenedUrl < ActiveRecord::Base
   def self.extract_token(token_str)
     # only use the leading valid characters
     # escape to ensure custom charsets with protected chars do not fail
-    /^([#{Regexp.escape(Shortener.key_chars.join)}]*).*/.match(token_str)[1]
+    # /^([#{Regexp.escape(Shortener.key_chars.join)}]*).*/.match(token_str)[1]
   end
 
   def self.fetch_with_token(token: nil, additional_params: {}, track: true)
